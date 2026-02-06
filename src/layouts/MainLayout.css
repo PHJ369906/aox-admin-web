@@ -1,0 +1,123 @@
+.aox-layout {
+  min-height: 100vh;
+  background: transparent;
+}
+
+.aox-sider {
+  border-right: 1px solid var(--color-border);
+  padding: 16px 12px;
+}
+
+.aox-sider--collapsed {
+  padding: 16px 8px;
+}
+
+.logo {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 4px 8px 16px;
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.1), rgba(34, 211, 238, 0.06));
+}
+
+.logo-mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #0891b2, #22d3ee);
+  box-shadow: var(--shadow-sm);
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+.logo-text span {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.logo-text small {
+  font-size: 12px;
+  color: var(--color-muted);
+}
+
+.aox-sider--collapsed .logo {
+  justify-content: center;
+  padding: 8px 0;
+}
+
+.aox-sider--collapsed .logo-text {
+  display: none;
+}
+
+.aox-menu .ant-menu-item,
+.aox-menu .ant-menu-submenu-title {
+  border-radius: 10px;
+  margin: 4px 8px;
+  height: 44px;
+  line-height: 44px;
+}
+
+.aox-header {
+  background: var(--color-surface);
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.user-info:hover {
+  background: #f1f5f9;
+}
+
+.username {
+  font-size: 14px;
+  color: var(--color-text);
+}
+
+.aox-content {
+  margin: 16px;
+  padding: 0;
+  background: transparent;
+}
+
+.aox-content-inner {
+  min-height: calc(100vh - 112px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
