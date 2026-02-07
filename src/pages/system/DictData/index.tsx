@@ -311,7 +311,7 @@ const DictDataManagePage: React.FC = () => {
               style={{ width: 200 }}
               showSearch
               filterOption={(input, option) =>
-                (option?.children as string).toLowerCase().indexOf(input.toLowerCase()) >= 0
+                String(option?.children ?? '').toLowerCase().indexOf(input.toLowerCase()) >= 0
               }
             >
               {dictTypeList.map((item) => (
@@ -379,7 +379,7 @@ const DictDataManagePage: React.FC = () => {
               showSearch
               disabled={!!currentRecord}
               filterOption={(input, option) =>
-                (option?.children as string).toLowerCase().indexOf(input.toLowerCase()) >= 0
+                String(option?.children ?? '').toLowerCase().indexOf(input.toLowerCase()) >= 0
               }
             >
               {dictTypeList.map((item) => (

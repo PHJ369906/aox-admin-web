@@ -93,7 +93,7 @@ const OssConfigPage: React.FC = () => {
             setCurrentType(storageType);
             await loadConfigList();
           } else {
-            message.error(res.message || '切换失败');
+            message.error((res as any).msg || (res as any).message || '切换失败');
           }
         } catch (error: any) {
           message.error(error.message || '切换失败');
@@ -121,7 +121,7 @@ const OssConfigPage: React.FC = () => {
         await loadConfigList();
         setModalVisible(false);
       } else {
-        message.error(res.message || '配置更新失败');
+        message.error((res as any).msg || (res as any).message || '配置更新失败');
       }
     } catch (error: any) {
       message.error(error.message || '配置更新失败');
@@ -162,7 +162,7 @@ const OssConfigPage: React.FC = () => {
         message.success('缓存清除成功');
         await loadConfigList();
       } else {
-        message.error(res.message || '缓存清除失败');
+        message.error((res as any).msg || (res as any).message || '缓存清除失败');
       }
     } catch (error) {
       message.error('缓存清除失败');

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
   Modal,
   Transfer,
+  type TransferProps,
   message,
   Spin,
 } from 'antd';
@@ -9,7 +10,7 @@ import request from '@/utils/request';
 
 interface UserRoleAssignProps {
   visible: boolean;
-  userId: Long | null;
+  userId: number | null;
   userName: string;
   onClose: () => void;
   onSuccess: () => void;
@@ -28,6 +29,10 @@ const UserRoleAssign: React.FC<UserRoleAssignProps> = ({
   const [loading, setLoading] = useState(false);
   const [allRoles, setAllRoles] = useState<any[]>([]);
   const [targetKeys, setTargetKeys] = useState<string[]>([]);
+
+  const handleTransferChange: TransferProps<any>['onChange'] = (nextTargetKeys) => {
+    setTargetKeys((nextTargetKeys || []).map(String));
+  };
 
   // 加载所有角色和用户已有角色
   useEffect(() => {
@@ -98,7 +103,7 @@ const UserRoleAssign: React.FC<UserRoleAssignProps> = ({
           }))}
           titles={['可选角色', '已分配角色']}
           targetKeys={targetKeys}
-          onChange={setTargetKeys}
+          onChange={handleTransferChange}
           render={item => item.title}
           listStyle={{
             width: 300,

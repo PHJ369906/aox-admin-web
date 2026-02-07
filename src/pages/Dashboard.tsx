@@ -285,7 +285,7 @@ export default function Dashboard() {
                 height={280}
                 label={{
                   type: 'spider',
-                  content: (data) =>
+                  content: (data: any) =>
                     `${data.method} ${Number(data.percentage || 0).toFixed(1)}%`,
                 }}
                 legend={{ position: 'bottom' }}
@@ -309,7 +309,7 @@ export default function Dashboard() {
                 height={280}
                 columnWidthRatio={0.6}
                 tooltip={{
-                  formatter: (data) => ({
+                  formatter: (data: any) => ({
                     name: '金额',
                     value: formatAmount(Number(data.amount)),
                   }),
@@ -335,7 +335,7 @@ export default function Dashboard() {
                 height={280}
                 xAxis={{ position: 'top' }}
                 tooltip={{
-                  formatter: (data) => ({
+                  formatter: (data: any) => ({
                     name: data.date,
                     value: `${formatNumber(Number(data.value))} 活跃用户`,
                   }),
