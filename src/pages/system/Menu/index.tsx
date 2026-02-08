@@ -226,7 +226,7 @@ const MenuManagePage: React.FC = () => {
     {
       title: '操作',
       key: 'action',
-      fixed: 'right' as 'right',
+      fixed: 'right' as const,
       width: 200,
       render: (_: any, record: any) => (
         <Space size="small">

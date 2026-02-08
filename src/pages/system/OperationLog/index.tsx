@@ -292,7 +292,7 @@ const OperationLogPage: React.FC = () => {
     {
       title: '操作',
       key: 'action',
-      fixed: 'right' as 'right',
+      fixed: 'right' as const,
       width: 100,
       render: (_: any, record: any) => (
         <Space size="small">

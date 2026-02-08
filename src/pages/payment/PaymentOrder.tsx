@@ -119,7 +119,7 @@ const PaymentOrder: React.FC = () => {
     if (!disposition) return null
     const utf8Match = disposition.match(/filename\*=utf-8''([^;]+)/i)
     if (utf8Match?.[1]) return decodeURIComponent(utf8Match[1])
-    const match = disposition.match(/filename="?([^\";]+)"?/i)
+    const match = disposition.match(/filename="?([^";]+)"?/i)
     return match?.[1] || null
   }
 

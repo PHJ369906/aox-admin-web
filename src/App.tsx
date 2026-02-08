@@ -21,13 +21,21 @@ import MiniappUser from './pages/miniapp/MiniappUser'
 import Banner from './pages/miniapp/Banner'
 import PaymentOrder from './pages/payment/PaymentOrder'
 import ScheduledJobMonitor from './pages/monitor/ScheduledJob'
+import AuthGuard from './components/AuthGuard'
 
 function App() {
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/login-test" element={<LoginTest />} />
-      <Route path="/" element={<Layout />}>
+      <Route
+        path="/"
+        element={
+          <AuthGuard>
+            <Layout />
+          </AuthGuard>
+        }
+      >
         <Route index element={<Navigate to="/dashboard" replace />} />
         <Route path="dashboard" element={<Dashboard />} />
 

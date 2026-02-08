@@ -2,15 +2,18 @@
  * Token 相关工具函数
  */
 
-const TOKEN_KEY = 'aox_token'
-const REFRESH_TOKEN_KEY = 'aox_refresh_token'
-const USER_INFO_KEY = 'aox_user_info'
+const TOKEN_KEY = 'token'
+const REFRESH_TOKEN_KEY = 'refreshToken'
+const USER_INFO_KEY = 'user'
+const LEGACY_TOKEN_KEY = 'aox_token'
+const LEGACY_REFRESH_TOKEN_KEY = 'aox_refresh_token'
+const LEGACY_USER_INFO_KEY = 'aox_user_info'
 
 /**
  * 获取 Token
  */
 export const getToken = (): string | null => {
-  return localStorage.getItem(TOKEN_KEY)
+  return localStorage.getItem(TOKEN_KEY) || localStorage.getItem(LEGACY_TOKEN_KEY)
 }
 
 /**
@@ -18,6 +21,7 @@ export const getToken = (): string | null => {
  */
 export const setToken = (token: string): void => {
   localStorage.setItem(TOKEN_KEY, token)
+  localStorage.removeItem(LEGACY_TOKEN_KEY)
 }
 
 /**
@@ -25,13 +29,14 @@ export const setToken = (token: string): void => {
  */
 export const removeToken = (): void => {
   localStorage.removeItem(TOKEN_KEY)
+  localStorage.removeItem(LEGACY_TOKEN_KEY)
 }
 
 /**
  * 获取 Refresh Token
  */
 export const getRefreshToken = (): string | null => {
-  return localStorage.getItem(REFRESH_TOKEN_KEY)
+  return localStorage.getItem(REFRESH_TOKEN_KEY) || localStorage.getItem(LEGACY_REFRESH_TOKEN_KEY)
 }
 
 /**
@@ -39,6 +44,7 @@ export const getRefreshToken = (): string | null => {
  */
 export const setRefreshToken = (token: string): void => {
   localStorage.setItem(REFRESH_TOKEN_KEY, token)
+  localStorage.removeItem(LEGACY_REFRESH_TOKEN_KEY)
 }
 
 /**
@@ -46,13 +52,14 @@ export const setRefreshToken = (token: string): void => {
  */
 export const removeRefreshToken = (): void => {
   localStorage.removeItem(REFRESH_TOKEN_KEY)
+  localStorage.removeItem(LEGACY_REFRESH_TOKEN_KEY)
 }
 
 /**
  * 获取用户信息
  */
 export const getUserInfo = (): any | null => {
-  const userInfoStr = localStorage.getItem(USER_INFO_KEY)
+  const userInfoStr = localStorage.getItem(USER_INFO_KEY) || localStorage.getItem(LEGACY_USER_INFO_KEY)
   if (userInfoStr) {
     try {
       return JSON.parse(userInfoStr)
@@ -68,6 +75,7 @@ export const getUserInfo = (): any | null => {
  */
 export const setUserInfo = (userInfo: any): void => {
   localStorage.setItem(USER_INFO_KEY, JSON.stringify(userInfo))
+  localStorage.removeItem(LEGACY_USER_INFO_KEY)
 }
 
 /**
@@ -75,6 +83,7 @@ export const setUserInfo = (userInfo: any): void => {
  */
 export const removeUserInfo = (): void => {
   localStorage.removeItem(USER_INFO_KEY)
+  localStorage.removeItem(LEGACY_USER_INFO_KEY)
 }
 
 /**
